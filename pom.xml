@@ -1,0 +1,68 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.source>8</java.source>
+        <java.target>8</java.target>
+        <tws.api.version>9.72.18</tws.api.version>
+    </properties>
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.jsystemtrader</groupId>
+    <artifactId>JSystemTrader</artifactId>
+    <version>5.0.0-alpha</version>
+    <packaging>pom</packaging>
+
+    <name>${project.artifactId}</name>
+    <description>JSystem Trader - automated system trading</description>
+
+    <distributionManagement>
+        <repository>
+            <id>dev</id>
+            <name>Local repository</name>
+            <url>file://${user.home}/.m2/repository</url>
+        </repository>
+    </distributionManagement>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.interactivebrokers.tws</groupId>
+                <artifactId>tws-api</artifactId>
+                <version>${tws.api.version}</version>
+            </dependency>
+            <!--dependency>
+                <groupId>commons-net</groupId>
+                <artifactId>commons-net</artifactId>
+                <version>2.0</version>
+            </dependency-->
+            <dependency>
+                <groupId>org.jfree</groupId>
+                <artifactId>jfreechart</artifactId>
+                <version>1.0.14</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jfree</groupId>
+                <artifactId>jcommon</artifactId>
+                <version>1.0.17</version>
+            </dependency>
+            <!--dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-email</artifactId>
+                <version>1.3.1</version>
+            </dependency>
+            <dependency>
+                <groupId>com.toedter</groupId>
+                <artifactId>jcalendar</artifactId>
+                <version>1.4</version>
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.5</version>
+                <scope>test</scope>
+            </dependency-->
+        </dependencies>
+    </dependencyManagement>
+
+</project>
