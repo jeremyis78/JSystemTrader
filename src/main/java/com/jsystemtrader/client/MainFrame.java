@@ -86,13 +86,18 @@ public class MainFrame extends JFrame implements ModelListener {
         tradingTable.addMouseListener(ma);
     }
 
+    //Attempt to get it from the jar. If not found, fall back to load from a directory
     private URL getImageURL(String imageFileName) throws JSystemTraderException {
-        URL imgURL = ClassLoader.getSystemResource(imageFileName);
+        URL imgURL = getClass().getResource("/resources/" + imageFileName);
         if (imgURL == null) {
-            String msg = "Could not locate " + imageFileName +
-                         ". Make sure the JSystemTrader directory is in the classpath.";
+            imgURL = getClass().getResource("/" + imageFileName);
+        }
+
+        if (imgURL == null) {
+            String msg = "Could not locate file: " + imageFileName + ". Make sure the /resources directory is in the classpath.";
             throw new JSystemTraderException(msg);
         }
+
         return imgURL;
     }
 
@@ -104,7 +109,7 @@ public class MainFrame extends JFrame implements ModelListener {
         JMenu fileMenu = new JMenu("File");
         fileMenu.setMnemonic('F');
 
-        connectMenuItem = new JMenuItem("Connect to TWS", new ImageIcon(getImageURL("resources/tws.jpg")));
+        connectMenuItem = new JMenuItem("Connect to TWS", new ImageIcon(getImageURL("tws.jpg")));
         connectMenuItem.setMnemonic('C');
 
         exitMenuItem = new JMenuItem("Exit");
@@ -179,7 +184,7 @@ public class MainFrame extends JFrame implements ModelListener {
         tradingScroll.getViewport().add(tradingTable);
         mainPanel.add(tradingPanel, BorderLayout.CENTER);
 
-        Image appIcon = Toolkit.getDefaultToolkit().getImage(getImageURL("resources/JSystemTrader.jpg"));
+        Image appIcon = Toolkit.getDefaultToolkit().getImage(getImageURL("JSystemTrader.jpg"));
         setIconImage(appIcon);
 
         getContentPane().add(contentPanel, BorderLayout.CENTER);
