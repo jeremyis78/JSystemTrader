@@ -19,7 +19,7 @@ developer or if you don't have much experience programming in Java,
 JSystemTrader is probably not for you.
 
 ## Building
-```mvn clean install```
+```mvn clean package```
 
 ## Running
 1) If you haven't installed it already, install liquidlnf.jar (unknown version):
@@ -30,4 +30,4 @@ Here we'll run it in our user directory so we will create:
 ```mkdir ~/JSystemTrader/Log```
 
 3) Run: (if you've already built and done steps 1 and 2)
-```java -jar target/JSystemTrader-5.0.0-alpha.jar ~/JSystemTrader```
+```java -jar target/JSystemTrader-*-jar-with-dependencies.jar ~/JSystemTrader```
